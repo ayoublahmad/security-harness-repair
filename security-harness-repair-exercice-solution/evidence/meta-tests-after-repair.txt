@@ -1,0 +1,21 @@
+Command:
+python -B -m unittest discover -s tests -v
+
+Runner version:
+Repaired inputs\harness.py
+
+Result:
+test_all_pass_contract_target (test_harness.HarnessTests.test_all_pass_contract_target) ... ok
+test_always_success_response_does_not_pass (test_harness.HarnessTests.test_always_success_response_does_not_pass) ... ok
+test_exception_is_error_and_execution_continues (test_harness.HarnessTests.test_exception_is_error_and_execution_continues) ... ok
+test_fresh_state_is_used_for_each_case (test_harness.HarnessTests.test_fresh_state_is_used_for_each_case) ... ok
+test_known_bad_target_is_rejected (test_harness.HarnessTests.test_known_bad_target_is_rejected) ... ok
+test_order_independence (test_harness.HarnessTests.test_order_independence) ... ok
+test_requests_are_not_mutated (test_harness.HarnessTests.test_requests_are_not_mutated) ... ok
+test_state_mutation_is_detected (test_harness.HarnessTests.test_state_mutation_is_detected) ... ok
+test_unselected_case_is_not_run (test_harness.HarnessTests.test_unselected_case_is_not_run) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.002s
+
+OK

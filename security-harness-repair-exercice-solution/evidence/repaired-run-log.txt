@@ -1,0 +1,9 @@
+Python version: Python 3.15.1
+Command used for Target A: python -B inputs\harness.py --target inputs\target_a.py --cases inputs\cases.json
+Target A exit code: 1
+Command used for Target B: python -B inputs\harness.py --target inputs\target_b.py --cases inputs\cases.json
+Target B exit code: 1
+target_a.py SHA-256: B9CFA75F90DA47C774FC9F26A3749754FA9EDF7DA8F711587907FEDD2F3325A4
+target_b.py SHA-256: E43DE6AE889D603B12D77C0082369BCBE3DE87F071910E28D16FDA7D289B3CFB
+cases.json SHA-256:  FF7EFEAC0740CD46D5A752CA6190B553F908508354CFB3AEA31C08B82C7B00A1
+harness.py SHA-256:  60B3251761773734B437DBE4C19AFACEA72F75A303D7C522FD4844BC46BF2D14

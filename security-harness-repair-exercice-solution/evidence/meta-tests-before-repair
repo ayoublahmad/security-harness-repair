@@ -1,0 +1,106 @@
+Command:
+python -B -m unittest discover -s tests -v
+
+Runner version:
+Original starter inputs\harness.py
+
+Result:
+test_all_pass_contract_target (test_harness.HarnessTests.test_all_pass_contract_target) ... ERROR
+test_always_success_response_does_not_pass (test_harness.HarnessTests.test_always_success_response_does_not_pass) ... ERROR
+test_exception_is_error_and_execution_continues (test_harness.HarnessTests.test_exception_is_error_and_execution_continues) ... ERROR
+test_fresh_state_is_used_for_each_case (test_harness.HarnessTests.test_fresh_state_is_used_for_each_case) ... ERROR
+test_known_bad_target_is_rejected (test_harness.HarnessTests.test_known_bad_target_is_rejected) ... ERROR
+test_order_independence (test_harness.HarnessTests.test_order_independence) ... ERROR
+test_requests_are_not_mutated (test_harness.HarnessTests.test_requests_are_not_mutated) ... FAIL
+test_state_mutation_is_detected (test_harness.HarnessTests.test_state_mutation_is_detected) ... ERROR
+test_unselected_case_is_not_run (test_harness.HarnessTests.test_unselected_case_is_not_run) ... ERROR
+
+======================================================================
+ERROR: test_all_pass_contract_target (test_harness.HarnessTests.test_all_pass_contract_target)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\pc\Downloads\15-security-harness-repair\15-security-harness-repair\tests\test_harness.py", line 184, in test_all_pass_contract_target
+    results, counts = self.run_suite(GoodTarget, cases)
+    ^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2, got 3)
+
+======================================================================
+ERROR: test_always_success_response_does_not_pass (test_harness.HarnessTests.test_always_success_response_does_not_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\pc\Downloads\15-security-harness-repair\15-security-harness-repair\tests\test_harness.py", line 233, in test_always_success_response_does_not_pass
+    results, counts = self.run_suite(AlwaysSuccessTarget, cases)
+    ^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2, got 3)
+
+======================================================================
+ERROR: test_exception_is_error_and_execution_continues (test_harness.HarnessTests.test_exception_is_error_and_execution_continues)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\pc\Downloads\15-security-harness-repair\15-security-harness-repair\tests\test_harness.py", line 263, in test_exception_is_error_and_execution_continues
+    results, counts = self.run_suite(ExceptionTarget, cases)
+    ^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2, got 3)
+
+======================================================================
+ERROR: test_fresh_state_is_used_for_each_case (test_harness.HarnessTests.test_fresh_state_is_used_for_each_case)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\pc\Downloads\15-security-harness-repair\15-security-harness-repair\tests\test_harness.py", line 343, in test_fresh_state_is_used_for_each_case
+    results, counts = self.run_suite(CountingTarget, cases)
+    ^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2, got 3)
+
+======================================================================
+ERROR: test_known_bad_target_is_rejected (test_harness.HarnessTests.test_known_bad_target_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\pc\Downloads\15-security-harness-repair\15-security-harness-repair\tests\test_harness.py", line 211, in test_known_bad_target_is_rejected
+    results, counts = self.run_suite(KnownBadTarget, cases)
+    ^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2, got 3)
+
+======================================================================
+ERROR: test_order_independence (test_harness.HarnessTests.test_order_independence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\pc\Downloads\15-security-harness-repair\15-security-harness-repair\tests\test_harness.py", line 369, in test_order_independence
+    original_results, original_counts = self.run_suite(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2, got 3)
+
+======================================================================
+ERROR: test_state_mutation_is_detected (test_harness.HarnessTests.test_state_mutation_is_detected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\pc\Downloads\15-security-harness-repair\15-security-harness-repair\tests\test_harness.py", line 316, in test_state_mutation_is_detected
+    results, counts = self.run_suite(MutationTarget, cases)
+    ^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2, got 3)
+
+======================================================================
+ERROR: test_unselected_case_is_not_run (test_harness.HarnessTests.test_unselected_case_is_not_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\pc\Downloads\15-security-harness-repair\15-security-harness-repair\tests\test_harness.py", line 294, in test_unselected_case_is_not_run
+    results, counts = self.run_suite(CountingTarget, cases)
+    ^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2, got 3)
+
+======================================================================
+FAIL: test_requests_are_not_mutated (test_harness.HarnessTests.test_requests_are_not_mutated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\pc\Downloads\15-security-harness-repair\15-security-harness-repair\tests\test_harness.py", line 417, in test_requests_are_not_mutated
+    self.assertEqual(request, original_request)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'op': 'run', 'nested': {'value': 'original'}, 'mutated': True} != {'op': 'run', 'nested': {'value': 'original'}}
+- {'mutated': True, 'nested': {'value': 'original'}, 'op': 'run'}
+?  -----------------
+
++ {'nested': {'value': 'original'}, 'op': 'run'}
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.005s
+
+FAILED (failures=1, errors=8)

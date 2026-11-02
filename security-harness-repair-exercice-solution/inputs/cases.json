@@ -1,0 +1,12 @@
+{"suite":"HC-1",
+"cases":[
+{"id":"C01","label":"control-red","selected":true,"request":{"op":"read","session":"red-reader","report":"r-red"},"expected_response":{"status":200,"body":"DEMO-red"},"expected_state":{"r-red":"DEMO-red","r-blue":"DEMO-blue"}},
+{"id":"C02","label":"control-blue","selected":true,"request":{"op":"read","session":"blue-reader","report":"r-blue"},"expected_response":{"status":200,"body":"DEMO-blue"},"expected_state":{"r-red":"DEMO-red","r-blue":"DEMO-blue"}},
+{"id":"C03","label":"cross-read","selected":true,"request":{"op":"read","session":"red-reader","report":"r-blue"},"expected_response":{"status":403,"body":"Denied"},"expected_state":{"r-red":"DEMO-red","r-blue":"DEMO-blue"}},
+{"id":"C04","label":"anonymous","selected":true,"request":{"op":"read","session":"","report":"r-red"},"expected_response":{"status":401,"body":"Sign in"},"expected_state":{"r-red":"DEMO-red","r-blue":"DEMO-blue"}},
+{"id":"C05","label":"unknown-session","selected":true,"request":{"op":"read","session":"DEMO-unknown","report":"r-red"},"expected_response":{"status":401,"body":"Sign in"},"expected_state":{"r-red":"DEMO-red","r-blue":"DEMO-blue"}},
+{"id":"C06","label":"missing-report","selected":true,"request":{"op":"read","session":"red-reader","report":"r-none"},"expected_response":{"status":404,"body":"Missing"},"expected_state":{"r-red":"DEMO-red","r-blue":"DEMO-blue"}},
+{"id":"C07","label":"denied-write","selected":true,"request":{"op":"write","session":"red-reader","report":"r-blue","value":"DEMO-tampered"},"expected_response":{"status":403,"body":"Denied"},"expected_state":{"r-red":"DEMO-red","r-blue":"DEMO-blue"}},
+{"id":"C08","label":"fresh-blue","selected":true,"request":{"op":"read","session":"blue-reader","report":"r-blue"},"expected_response":{"status":200,"body":"DEMO-blue"},"expected_state":{"r-red":"DEMO-red","r-blue":"DEMO-blue"}},
+{"id":"C09","label":"exception-probe","selected":true,"request":{"op":"explode"},"expected_response":{"status":400,"body":"Unknown"},"expected_state":{"r-red":"DEMO-red","r-blue":"DEMO-blue"}},
+{"id":"C10","label":"deferred-write","selected":false,"request":{"op":"write","session":"blue-reader","report":"r-red","value":"DEMO-deferred"},"expected_response":{"status":403,"body":"Denied"},"expected_state":{"r-red":"DEMO-red","r-blue":"DEMO-blue"}}]}
